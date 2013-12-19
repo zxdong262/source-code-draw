@@ -91,7 +91,6 @@ $(function() {
     len = arr.length
 
     log('processing.')
-    console.log(len)
     t1 = new Date().getTime()
 
     for(;i < len;i += 4) {
@@ -99,14 +98,11 @@ $(function() {
       if(!arr[i] && !arr[i+1] && !arr[i+2] && !arr[i+3]) ht += '  '
       else ht += defaults.chars[r] + ' '
       if(i % (4*imgW) === 0) ht += '\n' + indent
-        //console.log(ht)
     }
     log('done.')
 
     t2 = new Date().getTime()
     log('time cost: <i class="color-red">' + (t2-t1) + '</i> ms')
-    console.log(imgData)
-    console.log(ht)
     $('#output').html(ht)
   }
 
