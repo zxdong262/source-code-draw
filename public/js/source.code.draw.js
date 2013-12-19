@@ -26,7 +26,7 @@ $(function() {
     reader.onload = function(e) {
       var data = e.target.result
       log('preview image:')
-      log('<p><img id="img" width="50" alt="' + f.name + '" title="' + f.name + '" src="' + data + '" /></p>')
+      log('<p><img id="img" alt="' + f.name + '" title="' + f.name + '" src="' + data + '" /></p>')
       imgW = $('#img').width()
       imgH = $('#img').height()
       log('image with:' + imgW)
