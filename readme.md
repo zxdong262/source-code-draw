@@ -4,7 +4,7 @@ a simply app which will convert png image to source code drawing
 
 ## demo 
 
-goto --> <a href="http://html5beta.com/jquery-2/source-code-draw-2/">http://html5beta.com/jquery-2/source-code-draw-2/</a>
+goto --> <a href="http://html5beta.com/apps/source-code-draw.html">http://html5beta.com/jquery-2/source-code-draw-2/</a>
 
 ## or...
 
@@ -17,4 +17,4 @@ sudo npm install
 node app.js
 ```
 
-then visit http://localhost:3000
+then visit http://localhost:7654

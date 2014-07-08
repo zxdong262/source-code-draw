@@ -1,5 +1,35 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		title source code draw
+		link(rel='stylesheet', href='css/base.css')
+		style.
+			#output {
+				font-family: 'serif';
+				letter-spacing: 3px;
+			}
+	body
+		#wrapper
+			.centered
+				h1 Source code draw
+				h3 upload a png file, get the drawing with source code.
+				p
+					span.color-red note 
+					| : 50px width png image prefered.
+				p
+					span.color-red rules: 
+					| : one pix:(r, g, b, a), when r+g+b&gt;660 or a &lt; 30, render space, otherwise render random char.
+				#workspace.hide.mgt
+					p#file-op
+						label select png file to process:
+						input#file(type='file', name='files')
+					p
+						label chars pool: 
+						input#chars(type='text')
+					pre#output.
+						
+					canvas#canvas
+				#log
+		script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js')
+		script(src='js/source.code.draw.js')
