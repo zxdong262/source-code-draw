@@ -12,6 +12,7 @@ $(function() {
 	}
 	,imgW = 0
 	,imgH = 0
+	,scale = 0
 
 	if(!checkSupport()) return
 
@@ -30,6 +31,7 @@ $(function() {
 			log('<p><img id="img" alt="' + f.name + '" title="' + f.name + '" src="' + data + '" /></p>')
 			imgW = $('#img').width()
 			imgH = $('#img').height()
+			scale = 50/imgW
 			log('image with:' + imgW)
 			log('image height:' + imgH)
 			renderSourceCodeImg({
@@ -61,10 +63,6 @@ $(function() {
 
 	//render text img
 	function renderSourceCodeImg(opts) {
-		$('#canvas').prop({
-			width: imgW
-			,height: imgH
-		})
 		var ctx = canvas.getContext("2d")
 		,imgData
 		,arr = []
@@ -80,15 +78,26 @@ $(function() {
 		,t2 = 0
 		,ht = ''
 		,indent = defaults.indent
+		,tarW = Math.floor(imgW * scale)
+		,tarH = Math.floor(imgH * scale)
 		ht += indent
+		imgW = tarW
+		imgH = tarH
 
-		ctx.clearRect(0, 0, imgW, imgH)
+		
+		$('#canvas').prop({
+			width: tarW
+			,height: tarH
+		})
+		ctx.clearRect(0, 0, tarW, tarH)
 
 		log('draw it in canvas.')
+		ctx.scale(scale, scale)
 		ctx.drawImage($('#img')[0],0,0)
 
 		log('getImageData.')
-		imgData = ctx.getImageData(0, 0, imgW, imgH)
+		imgData = ctx.getImageData(0, 0, tarW, tarH)
+
 		arr = imgData.data
 		len = arr.length
 
