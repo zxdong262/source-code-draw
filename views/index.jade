@@ -5,9 +5,16 @@ html
 		title source code draw
 		link(rel='stylesheet', href='css/base.css')
 		style.
-			#output {
+			.output {
 				font-family: 'serif';
 				letter-spacing: 3px;
+				overflow-x: scroll;
+			}
+			.overhide {
+				overflow:hidden;
+			}
+			.max100 {
+				max-width: 100%;
 			}
 	body
 		#wrapper
@@ -19,17 +26,15 @@ html
 					| : 50px width png image prefered.
 				p
 					span.color-red rules: 
-					| : one pix:(r, g, b, a), when r+g+b&gt;660 or a &lt; 30, render space, otherwise render random char.
+					| : one pix:(r, g, b, a), when r+g+b&gt;660 or a &lt; 30, render space, otherwise render random char. in other words, white and 0% opacity point will be rendered with empty string.
 				#workspace.hide.mgt
 					p#file-op
-						label select png file to process:
+						label select png file to process: 
 						input#file(type='file', name='files')
 					p
 						label chars pool: 
 						input#chars(type='text')
-					pre#output.
-						
-					canvas#canvas
+					canvas#canvas.hide
 				#log
 		script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js')
 		script(src='js/source.code.draw.js')
